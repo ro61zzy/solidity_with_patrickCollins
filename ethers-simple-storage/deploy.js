@@ -45,7 +45,7 @@ async function main() {
 
   //to add overrides
   const contract = await contractFactory.deploy({ gasPrice: 20000000000 }); //set gas price
-  const deploymentReceipt = await contract.deployTransaction.wait(1); //wait for 1 block confirmation
+  const deploymentReceipt = await contract.deploymentTransaction.wait(1); //wait for 1 block confirmation
   console.log(`Contract deployed to ${contract.address}`);
 
   // console.log("Here is the transaction:")
