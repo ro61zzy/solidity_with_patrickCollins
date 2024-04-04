@@ -14,9 +14,9 @@ async function main() {
     //we'll copy the ganache RPC server URL - http://127.0.0.1:7545  - with just this, we can start making calls
     //to use functions/rappers to interact with the blockchain we can use axios or fetch and interractiong with all these functions that are provided at Ethereum JSON-RPC API, but this is where EthersJs comes in, it has all these fn(s)
     //install with yarn add ethers, then import it on top of the file;; after that we can now create our provider object in our main function
-    const provider = new ethers.JsonRpcProvider("http://127.0.0.1:7545") //saying we want to connect to that url - is how our script is going to onnect to blockchain
+    const provider = new ethers.JsonRpcProvider(process.env.RPC_URL) //saying we want to connect to that url - is how our script is going to onnect to blockchain
     //get a wallet with info from genache, it takesa params, private key and provider - uum I'm thinking we have created our signer
-    const wallet = new ethers.Wallet("0xdc4b175d20ee5922a4503bef15d15e1b5039f134aa2cc054ed128c44aeef2783", provider)
+    const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider)
     //so now let's grab our contract, to deploy we need ABI and binary compiled code, to read from these two files we need a package called fs; yarn add fs-extra
     const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf8") //read syncronously
     const binary = fs.readFileSync(
