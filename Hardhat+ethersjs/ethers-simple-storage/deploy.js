@@ -35,7 +35,7 @@ async function main() {
 
     //to add overrides
     const contract = await contractFactory.deploy({ gasPrice: 20000000000 })//set gas price
-    const deploymentReceipt = await contract.deployTransaction.wait(1) // wait one block confirmation
+    const deploymentReceipt = await contract.deployTransaction.wait(1) //wait for 1 block confirmation
     console.log(`Contract deployed to ${contract.address}`)
 
      // console.log("Here is the transaction:")
@@ -64,6 +64,15 @@ async function main() {
 //    await sendTransaction.wait(1)
 //    console.log(sentTxResponse)
    
+
+
+let currentFavoriteNumber = await contract.retrieve()
+console.log(`Current Favorite Number: ${currentFavoriteNumber}`)
+console.log("Updating favorite number...")
+let transactionResponse = await contract.store(7)
+let transactionReceipt = await transactionResponse.wait()
+currentFavoriteNumber = await contract.retrieve()
+console.log(`New Favorite Number: ${currentFavoriteNumber}`)
 
 }
 
