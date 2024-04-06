@@ -19,6 +19,7 @@ yarn hardhat compile
 
 //to deploy, go to ignition/module/ and create deploy.js
 
+npx hardhat ignition deploy ./ignition/modules/(file_name)
 
 
 ```
