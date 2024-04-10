@@ -9,11 +9,13 @@ pragma solidity ^0.8.19;
 contract SimpleStorage {
     uint256 myFavoriteNumber;
 
+
+//using structs
     struct Person {
         uint256 favoriteNumber;
         string name;
     }
-    // uint256[] public anArray;
+    // uint256[] public anArray; - a dynamic array
     Person[] public listOfPeople;
 
     mapping(string => uint256) public nameToFavoriteNumber;
