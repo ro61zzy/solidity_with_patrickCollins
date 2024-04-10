@@ -21,6 +21,9 @@ contract StorageFactory {
         listOfSimpleStorageContracts.push(simpleStorageContractVariable);
     }
 
+
+//how does our storagefactory contract interact with the simple storage store function?
+//for contracts to interact, we need two things, the ABI and the Address
     function sfStore(
         uint256 _simpleStorageIndex,
         uint256 _simpleStorageNumber
