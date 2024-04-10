@@ -3,14 +3,21 @@
 pragma solidity ^0.8.19;
 
 // import {SimpleStorage, SimpleStorage2} from "./SimpleStorage.sol";
+//specify, named imports
 import {SimpleStorage} from "./SimpleStorage.sol";
 
 contract StorageFactory {
+
+    //type simplestorage azin we are creating something that follows simplw storage
+    //create an array of all that are created
     SimpleStorage[] public listOfSimpleStorageContracts;
 
+
+//a function that creates/deploys a simplestorage contract
     function createSimpleStorageContract() public {
         SimpleStorage simpleStorageContractVariable = new SimpleStorage();
         // SimpleStorage simpleStorage = new SimpleStorage();
+        //add the created simple storages into the array
         listOfSimpleStorageContracts.push(simpleStorageContractVariable);
     }
 
