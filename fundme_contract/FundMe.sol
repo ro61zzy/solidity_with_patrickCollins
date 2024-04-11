@@ -11,11 +11,14 @@ contract FundMe{
 
 
     //the two main functions that we need are, fund and withdraw
-    function fund() public{
+    function fund() public payable{
+        //this function will allow users to send money
+        // aslo set the minimum amount in dollar, a user can send
+        //how do we send eth to a contract? to allow the function to receive, you make it payabele
 
     }
 
     function withdraw() public{
-        
+
     }
 }
