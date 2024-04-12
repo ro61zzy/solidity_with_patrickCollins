@@ -15,6 +15,7 @@ contract FundMe{
         //this function will allow users to send money
         // aslo set the minimum amount in dollar, a user can send
         //how do we send eth to a contract? to allow the function to receive, you make it payabele
+        //so whenever this function is called, we will send eth to this contract
 
     }
 
