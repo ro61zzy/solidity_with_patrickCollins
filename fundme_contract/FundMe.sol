@@ -22,7 +22,7 @@ contract FundMe{
     //the two main functions that we need are, fund and withdraw
     function fund() public payable{
 
-        msg.value.getConversionRate();
+        require(msg.value.getConversionRate() >= minimumUsd, "didn't send enough");
         //this function will allow users to send money
         // aslo set the minimum amount in dollar, a user can send
         //how do we send eth to a contract? to allow the function to receive, you make it payabele
@@ -32,7 +32,7 @@ contract FundMe{
 
        // require(getConversionRate(msg.value) >= minimumUsd, "didn't send enough"); ///so we need to convert the usd to eth for msg.value to understand
         funders.push(msg.sender);
-        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;
+        addressToAmountFunded[msg.sender] += msg.value;
 
     }
         //where oracles n chainlink come in; we need data from the real world
@@ -69,6 +69,14 @@ contract FundMe{
     
 
     function withdraw() public{
+        //for loop
+        /* starting index, ending index, step amount */
+        // 0, 10, 1
+        //1,2,3,4
+        for( uint256 funderIndex = 0; funderIndex < funders.length; fundersIndex++){
+            address funder = funders[funderIndex];
+            addressToAmountFunded[funder] = 0;
+        }
 
     }
 }
