@@ -19,6 +19,11 @@ contract FundMe{
 
     mapping(address => uint256) public addressToAmountFunded;
 
+
+     constructor() {
+        i_owner = msg.sender;
+    }
+
     //the two main functions that we need are, fund and withdraw
     function fund() public payable{
 
@@ -103,12 +108,12 @@ contract FundMe{
     //  /        \
     //receive()  fallback()
 
-    fallback() external payable {
-        fund();
-    }
+    // fallback() external payable {
+    //     fund();
+    // }
 
-    receive() external payable {
-        fund();
-    }
-    }
+    // receive() external payable {
+    //     fund();
+    // }
+   //  }
 }
