@@ -123,16 +123,6 @@ address public immutable i_owner;
     //  /        \
     //receive()  fallback()
 
-    // fallback() external payable {
-    //     fund();
-    // }
-
-    // receive() external payable {
-    //     fund();
-    // }
-   //  }
-
-
 
 
    ////////MODIFIERS///////
@@ -143,6 +133,18 @@ address public immutable i_owner;
    if(msg.send != i_owner) { revert NotOwner(); }
     _;//this says, then execute everything else,
     }
+
+
+//incase someone send some money to this contract without calling the fund function; they will be routed to the fund function
+    receive() external payable {
+        fund();
+    }
+
+    
+    fallback() external payable {
+        fund();
+    }
+
 
 
 
