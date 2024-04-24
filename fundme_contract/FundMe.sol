@@ -20,7 +20,12 @@ contract FundMe{
     mapping(address => uint256) public addressToAmountFunded;
 
 
+//to set the contract so that only the owner of the contract can withdraw, we create a constructor
+//is a special function that is immediately called when you deploy a contract
+//so create a variable called owner, to set the address of the owner of the contract
+address public owner;
      constructor() {
+        //.sender here being the owner of the contract
         i_owner = msg.sender;
     }
 
@@ -74,6 +79,8 @@ contract FundMe{
     
 
     function withdraw() public{
+        //to set so that the only person who can withdraw funds from this contract is the sender, let's require owner's address
+       // require(msg.sender == owner, "must be owner"); //but we can't do this on every function that needs a 
         //for loop
         /* starting index, ending index, step amount */
         // 0, 10, 1
