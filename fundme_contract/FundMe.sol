@@ -2,7 +2,11 @@
 
 pragma solidity ^0.8.19;
 
-//import {PriceConverter} from "./PriceConverter";
+import {PriceConverter} from "./PriceConverter";
+
+
+//Let's create a custom error to save on storage; instaed of using all the requires, we can use custom errors
+error NotOwner(); //so we can now create if statements
 
 //we want this contract to 
 // a.) get funds from users
@@ -13,7 +17,10 @@ contract FundMe{
 
     using PriceConverter for uint256;
 
-    uint256 public minimumUsd = 5e18;
+    //uint256 public minimumUsd = 5e18;
+    //using constant to optimize gas, reduce the amount of  gas used
+    //we use all caps to name constants
+     uint256 public constant MINIMUM_USD = 5e18;
 
     address[] public funders;
 
@@ -23,7 +30,8 @@ contract FundMe{
 //to set the contract so that only the owner of the contract can withdraw, we create a constructor
 //is a special function that is immediately called when you deploy a contract
 //so create a variable called owner, to set the address of the owner of the contract
-address public owner;
+//set the variable as immutable to save gas - for gas optimization
+address public immutable i_owner;
      constructor() {
         //.sender here being the owner of the contract
         i_owner = msg.sender;
@@ -78,9 +86,9 @@ address public owner;
 
     
 
-    function withdraw() public{
+    function withdraw() public onlyOwner{
         //to set so that the only person who can withdraw funds from this contract is the sender, let's require owner's address
-       // require(msg.sender == owner, "must be owner"); //but we can't do this on every function that needs a 
+       // require(msg.sender == owner, "must be owner"); //but we can't do this on every function; this is where MODIFIERS comes in
         //for loop
         /* starting index, ending index, step amount */
         // 0, 10, 1
@@ -123,4 +131,19 @@ address public owner;
     //     fund();
     // }
    //  }
+
+
+
+
+   ////////MODIFIERS///////
+   //helps us create a keyword/fn right in the declaration of a function that needs a specific something
+    modifier onlyOwner() {
+        //_; if the underscpre is here, it says, execute everything else on the fn first then this in the modifier
+   // require(msg.sender == i_owner, "Sender is not owner");
+   if(msg.send != i_owner) { revert NotOwner(); }
+    _;//this says, then execute everything else,
+    }
+
+
+
 }
