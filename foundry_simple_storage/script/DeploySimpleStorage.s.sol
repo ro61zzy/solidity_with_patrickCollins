@@ -18,4 +18,7 @@ function run() external returns (SimpleStorage) {
 
 //The vm keyword is just a tool for controlling the interactions with Forge's local Ethereum testnet. We're using it here to specify that all the activities within the startBroadcast and stopBroadcast functions should take place on-chain.
 
-//to run this,
+//to run this, forge script script/deploySimpleStorage.s.sol
+
+
+//si
