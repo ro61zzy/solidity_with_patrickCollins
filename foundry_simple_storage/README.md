@@ -5,4 +5,8 @@ instead, encrypt with ERC2335, that helps encrypt priate key into json format
 
 
 Creating deploying script in foundry using solidity;
-the naming convention is DeployContract.s.sol
+the naming convention is DeployContract.s.sol  
+
+Usually, scripts bear an s.sol extension instead of sol.
+
+
