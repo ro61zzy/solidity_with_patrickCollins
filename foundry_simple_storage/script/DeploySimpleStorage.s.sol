@@ -29,4 +29,4 @@ function run() external returns (SimpleStorage) {
 // // If you wish to simulate on-chain transactions pass a RPC URL.
 
 
-//since we didn't specify any RPC URL; in foundry, it will automatically run/deploy your contract on a temporary environment
+//since we didn't specify any RPC URL; in foundry, it will automatically run/deploy your contract on a temporary anvil chain
