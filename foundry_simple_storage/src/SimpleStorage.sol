@@ -34,4 +34,4 @@ contract SimpleStorage {
 
 
 //when you compile with forge compile, you get two folders, out and cache
-//out has everything like the abi and bla b la b la
+//out has everything like the abi and bytecode and bla b la b la
