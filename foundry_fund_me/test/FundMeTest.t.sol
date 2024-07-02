@@ -23,6 +23,7 @@ contract FundMETest is Test {
     }
 
     function testOwnerIsMessageSender() public{
-        assertEq(fundMe.i_owner(), msg.sender); //this will fail because we now have two contracts, the FundMe and the test instance fundMe
+       // assertEq(fundMe.i_owner(), msg.sender); //this will fail because we now have two contracts, the FundMe and the test instance fundMe, so we reference current contract
+    assertEq(fundMe.i_owner(), address(this));
     }
 }
