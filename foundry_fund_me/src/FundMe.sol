@@ -4,7 +4,7 @@ pragma solidity ^0.8.8;
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./PriceConverter.sol";
 
-error FundMe__NotOwner(); //it's best practice to name your error with contract name and two underscores
+error FundMe__NotOwner(); //it's best practice to name your error with contract name and two underscores, so that when you get it, you know it's from which contract
 
 
 contract FundMe {
