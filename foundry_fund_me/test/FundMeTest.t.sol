@@ -19,6 +19,10 @@ contract FundMETest is Test {
     function testMinimumDollarIsFive() public{
     // here is where we test the functions of the fundme contract if they work as expected   
     //Test gives us assertEq to test equality   
-   assertEq(left, right); (fundMe.MINIMUM_USD())
+    assertEq(fundMe.MINIMUM_USD(), 5e18); //test if the function is actually 5dollars, 5e18
+    }
+
+    function testOwnerIsMessageSender() public{
+        assertEq(fundMe.i_owner(), msg.sender); //this will fail because we now have two contracts, the FundMe and the test instance fundMe
     }
 }
