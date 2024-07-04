@@ -28,7 +28,8 @@ contract FundMETest is Test {
     }
 
    function testpriceFeedVersionIsAccurate() public {
-      uint fundMe.getVersion()
+      uint version = fundMe.getVersion();
+      assertEq(version, 4);
    }
 
 }
