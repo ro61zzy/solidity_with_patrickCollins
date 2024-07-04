@@ -30,6 +30,7 @@ contract FundMETest is Test {
    function testpriceFeedVersionIsAccurate() public {
       uint version = fundMe.getVersion();
       assertEq(version, 4);
+      //we will get [FAIL. Reason: EvmError: Revert] testpriceFeedVersionIsAccurate() (gas: 8091)
    }
 
 }
